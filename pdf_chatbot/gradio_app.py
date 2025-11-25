@@ -104,7 +104,7 @@ def check_status() -> str:
 
 
 # Create Gradio interface
-with gr.Blocks(title="PDF Chatbot", theme=gr.themes.Soft()) as demo:
+with gr.Blocks(title="PDF Chatbot") as demo:
     gr.Markdown(
         """
         # 📚 PDF Chatbot
@@ -142,8 +142,7 @@ with gr.Blocks(title="PDF Chatbot", theme=gr.themes.Soft()) as demo:
             gr.Markdown("### 💬 Chat with PDF")
             chatbot = gr.Chatbot(
                 label="Conversation",
-                height=500,
-                show_copy_button=True
+                height=500
             )
             msg_input = gr.Textbox(
                 label="Your Question",
@@ -187,5 +186,5 @@ with gr.Blocks(title="PDF Chatbot", theme=gr.themes.Soft()) as demo:
 if __name__ == "__main__":
     print("Starting Gradio app...")
     print("Make sure FastAPI server is running on http://localhost:8000")
-    demo.launch(server_name="0.0.0.0", server_port=7860, share=False)
+    demo.launch(server_name="0.0.0.0", server_port=7860, share=False, theme=gr.themes.Soft())
 

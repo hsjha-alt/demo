@@ -25,8 +25,16 @@ class ChatEngine:
             models = ollama.list()
             available_models = [model['name'] for model in models.get('models', [])]
             
-            # Check if our model is available
-            if self.model_name not in available_models:
+            # Check if our model is available (handle both "phi" and "phi:latest" formats)
+            # Check if model name matches exactly or starts with the model name
+            model_found = any(
+                model_name == self.model_name or 
+                model_name.startswith(self.model_name + ':') or
+                model_name.startswith(self.model_name + '-')
+                for model_name in available_models
+            )
+            
+            if not model_found:
                 print(f"Warning: Model '{self.model_name}' not found. Available models: {available_models}")
                 print(f"Please run: ollama pull {self.model_name}")
                 return False

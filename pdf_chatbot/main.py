@@ -21,7 +21,7 @@ def run_fastapi():
 def run_gradio():
     """Run Gradio app in a separate thread"""
     time.sleep(2)  # Wait for FastAPI to start
-    gradio_demo.launch(server_name="0.0.0.0", server_port=7860, share=False)
+    gradio_demo.launch(server_name="0.0.0.0", server_port=7860, share=False, theme=gr.themes.Soft())
 
 
 if __name__ == "__main__":
