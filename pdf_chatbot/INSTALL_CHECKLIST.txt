@@ -1,0 +1,42 @@
+PDF Chatbot - Installation Checklist
+=====================================
+
+□ Step 1: Install Ollama
+   → Download from: https://ollama.ai
+   → Run OllamaSetup.exe (Windows)
+   → Verify: ollama --version
+
+□ Step 2: Download a Model
+   → Run: ollama pull phi
+   → Verify: ollama list
+
+□ Step 3: Install Python Dependencies
+   → cd pdf_chatbot
+   → pip install -r requirements.txt
+
+□ Step 4: Test Installation
+   → python -c "import ollama; print('Ollama OK')"
+   → python -c "import gradio; print('Gradio OK')"
+   → python -c "import fastapi; print('FastAPI OK')"
+
+□ Step 5: Run Application
+   → python main.py
+   → Open browser: http://localhost:7860
+
+Quick Commands Reference:
+------------------------
+ollama serve          - Start Ollama service (usually auto-starts)
+ollama pull phi       - Download phi model (small, fast)
+ollama pull llama2    - Download llama2 model (better quality)
+ollama list           - List installed models
+ollama --version      - Check Ollama version
+
+python main.py        - Run full application
+python api.py         - Run only FastAPI backend
+python gradio_app.py  - Run only Gradio UI
+
+Need Help?
+----------
+See SETUP_GUIDE.md for detailed instructions
+See README.md for full documentation
+
